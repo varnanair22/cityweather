@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<form method="POST" name="form1" id="form1">
+  {% csrf_token %}
+  <div class = "signup_css">
+
+      <h2 style="color:#000066; text-align:center"> User Login </h2>
+
+        <img src="{% static 'images/login_img.jpg' %}" class="center_img">
+        </br>
+        {%for message in messages%}
+        <h2 style="color:#ff0000"><font size="-1">{{message}}</font>
+         </h2>
+         {% endfor %}
+        </br>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" formaction="logging">Login</button>
+    </br>
+    </br>
+    <label>
+      New User?
+    </label>
+    </br>
+    <button type="button" class="cancelbtn" onclick="location.href = 'signup';" name="signup_btn">Signup</button>
+    <!--<span class="psw"><a href="#">SignIn</a></span>-->
+
+  </div>
+</form>
+
+
+{% endblock %}

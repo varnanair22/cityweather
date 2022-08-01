@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<form action="auth" method="POST">
+  {% csrf_token %}
+  <div class = "signup_css">
+    <h2 style="color:#000066; text-align:center"> Sign Up </h2>
+    {%for message in messages%}
+      <h2 style="color:#ff0000"><font size="-1">{{message}}</font>
+     </h2>
+     {% endfor %}
+
+         </br>
+    
+    <label for="uname"><b>Full Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
+
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter EmailID" name="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="pswd" required>
+
+    <label for="psw"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="cnf_pswd" required>
+    </br>
+    </br>
+
+    <label>
+      <input type="checkbox" checked="checked" name="terms" required>
+        <font size="-1">I agree with the <b>Company Terms</b> and <b>Policies</b>
+        </font>
+    </label>
+
+    <button type="submit" name="signin">Sign In</button>
+
+
+
+  </div>
+
+</form>
+{% endblock %}
